@@ -1,0 +1,13 @@
+log_counts = {
+    "DEBUG": 14,
+    "INFO": 85,
+    "ERROR": 112,
+    "WARN": 23,
+    "CRITICAL": 5
+}
+# key=log_counts.get tells Python to compare the VALUES, but return the KEY.
+most_frequent_type = max(log_counts,key=log_counts.get)
+highest_count = log_counts[most_frequent_type]
+print(f"most frequent log: {most_frequent_type} ({highest_count} occurrences)")
+
+
