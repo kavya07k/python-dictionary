@@ -1,0 +1,20 @@
+api_response = {
+    "status": "success",
+    "data": {
+        "user_profile": {
+            "account_id": 9845,
+            "credentials": {
+                "username": "qa_automation_lead"
+            }
+        }
+    }
+}
+try:
+    # Deep nested extraction
+    username = api_response["data"]["user_profile"]["credentials"]["username"]
+    print(f"Extracted User: {username}")
+except KeyError as e:
+    # Fallback assignment handles missing keys gracefully
+    username = "Guest_User"
+    print(f"Key missing, falling back to default: {e}")
+'''Direct bracket lookups dict[key] are fast but hazardous. If any nested layer is missing, Python throws a KeyError. In automation suites, wrapping this assertion in a try-except block keeps the execution pipeline running cleanly.'''
