@@ -1,0 +1,10 @@
+from collections import Counter
+
+# If your data is natively captured inside a Counter object
+log_counter = Counter(["INFO", "ERROR", "ERROR", "WARN", "INFO", "ERROR"])
+
+# .most_common(1) returns a list containing a tuple: [('ERROR', 3)]
+top_log, count = log_counter.most_common(1)[0]
+
+print(f"Most Frequent Log: {top_log} ({count} occurrences)")
+
