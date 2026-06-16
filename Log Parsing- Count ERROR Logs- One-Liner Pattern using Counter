@@ -1,0 +1,15 @@
+# Sample Log Dump from an automation run
+log_dump = [
+    "2026-06-15 10:00:01 INFO - Element located successfully",
+    "2026-06-15 10:00:03 ERROR - TimeoutException: Element not clickable",
+    "2026-06-15 10:00:05 WARN - DeprecationWarning: Implicit waits are discouraged",
+    "2026-06-15 10:01:12 ERROR - StaleElementReferenceException: Element is no longer attached to DOM",
+    "2026-06-15 10:01:45 ERROR - TimeoutException: Element not clickable",
+    "2026-06-15 10:02:00 INFO - Browser closed"
+]
+from collections import Counter
+
+# Generator expression extracts the error message ONLY if "ERROR -" exists in the log line
+error_counts = Counter(log.split("ERROR - ")[1] for log in log_dump if "ERROR -" in log)
+
+print(dict(error_counts))
