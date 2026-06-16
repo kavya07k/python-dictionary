@@ -1,0 +1,15 @@
+log_counts = {
+    "DEBUG": 14,
+    "INFO": 112,
+    "ERROR": 112,
+    "WARN": 23,
+    "CRITICAL": 5
+}
+# 1. Find the absolute highest count value first
+highest_value = max(log_counts.values())
+
+# 2. Extract all keys matching that value
+all_max_logs = {log_type: count for log_type, count in log_counts.items() if count == highest_value}
+
+print("Top Logs (including ties):", all_max_logs)
+
